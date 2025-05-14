@@ -172,7 +172,9 @@ ESCOLHA UMA OPÇÃO: _____
                     }
                 }
                 break;
-            
+            case 4:
+                System.out.println(GerenciaEstoque.listarProdutos());
+                break;
             default:
                 break;
         }
