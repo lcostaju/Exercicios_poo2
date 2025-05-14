@@ -56,6 +56,7 @@ ESCOLHA UMA OPÇÃO: _____
                 subMenu();
                 opSub = s.nextInt();
                 while (opSub != 3) {
+                    
                     switch (opSub) {
                         case 1:
                             System.out.print("Nome do produto: ");
@@ -84,11 +85,94 @@ ESCOLHA UMA OPÇÃO: _____
                         default:
                             break;
                     }
-                    
+                    if (opSub != 3) {
+                        subMenu();
+                        opSub = s.nextInt();
+                    }
                     
                 }
                 break;
-        
+            case 2:
+                subMenu();
+                opSub = s.nextInt();
+                while (opSub != 3) {
+                    switch (opSub) {
+                        case 1:
+                            System.out.print("Nome do produto: ");
+                            String nomeCompra = s.next();
+                            System.out.print("Quantidade do produto: ");
+                            Integer quantidadeCompra = s.nextInt();
+                            Produto produtoFisicoCompra = GerenciaEstoque.buscarProduto(nomeCompra);
+                            Compra compra = new Compra(produtoFisicoCompra, quantidadeCompra);
+                            System.out.println(compra.executar());
+                            break;
+                        case 2:
+                            System.out.print("Nome do produto: ");
+                            String nomeCompraDig = s.next();
+                            System.out.print("Quantidade do produto: ");
+                            Integer qtdDig = 0;
+                            Produto produtoDigitalCompra = GerenciaEstoque.buscarProduto(nomeCompraDig);
+                            Compra compraDig = new Compra(produtoDigitalCompra, qtdDig);
+                            System.out.println(compraDig.executar());
+                            break;
+                        case 3:
+                            System.out.println("Voltando ao menu principal...");
+                            break;    
+                        default:
+                            break;
+                    }
+                    if (opSub != 3) {
+                        subMenu();
+                        opSub = s.nextInt();
+                    }
+                }
+
+            case 3:
+                subMenu();
+                opSub = s.nextInt();
+                while (opSub != 3) {
+                    switch (opSub) {
+                        case 1:
+                            System.out.print("Nome do produto: ");
+                            String nomeVenda = s.next();
+                            System.out.print("Quantidade do produto: ");
+                            Integer quantidadeVenda = s.nextInt();
+                            Produto produtoFisicoVenda = GerenciaEstoque.buscarProduto(nomeVenda);
+                            Venda venda = new Venda(produtoFisicoVenda, quantidadeVenda);
+                            try {
+                                System.out.println(venda.executar());
+                            } catch (Exception e) {
+                                // TODO: handle exception
+                                System.out.println("Erro: " + e.getMessage());
+                            }
+                            
+                            break;
+                        case 2:
+                            System.out.print("Nome do produto: ");
+                            String nomeVendaDig = s.next();
+                            System.out.print("Quantidade do produto: ");
+                            Integer qtdDig = 0;
+                            Produto produtoDigitalVenda = GerenciaEstoque.buscarProduto(nomeVendaDig);
+                            Venda vendaDig = new Venda(produtoDigitalVenda, qtdDig);
+                            try {
+                                System.out.println(vendaDig.executar());
+                            } catch (Exception e) {
+                                System.out.println("Erro: " + e.getMessage());
+                            }
+                            break;
+                        case 3:
+                            System.out.println("Voltando ao menu principal...");
+                            break;    
+                        default:
+                            break;
+                    }
+                    if (opSub != 3) {
+                        subMenu();
+                        opSub = s.nextInt();
+                    }
+                }
+                break;
+            
             default:
                 break;
         }
