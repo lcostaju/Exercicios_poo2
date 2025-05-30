@@ -29,5 +29,6 @@ public class App {
                     break;
             }
         } while (op != 3);
+        s.close();
     }
 }
