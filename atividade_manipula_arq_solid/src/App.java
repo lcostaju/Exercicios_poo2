@@ -2,9 +2,10 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Scanner s = new Scanner(System.in);
+         Scanner s = new Scanner(System.in);
         Integer op = 0;
         Funcionario funcionario = null;
+        FuncionarioRepository repository = null;
         do {
             
             System.out.println("-------Menu-------");
@@ -21,10 +22,11 @@ public class App {
                     System.out.println("Digite o cargo do funcionario");
                     String cargo = s.nextLine();
                     funcionario = new Funcionario(nome, cargo);
-                    funcionario.salvar();
+                    repository = new FuncionarioRepository(funcionario);
+                    repository.salvar();
                     break;
                 case 2:
-                    System.out.println(funcionario.exibir());
+                    System.out.println(repository.exibir());
                     break;
                 default:
                     break;
@@ -32,4 +34,5 @@ public class App {
         } while (op != 3);
         s.close();
     }
-}
+    }
+
